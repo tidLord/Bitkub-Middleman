@@ -44,6 +44,8 @@ clone :
     reqBody = {
     }      
     bitkub("GET", '/api/status', reqBody, credentials)
+
+โดยฟังก์ชั่นจะ return ข้อมูลจาก exchange กลับมาเป็น json ที่เราสามารถนำไปใช้งานได้เลยตามอัธยาศัย
    
    ## 
 <a href="https://www.buymeacoffee.com/tar888" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
