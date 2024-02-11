@@ -26,7 +26,7 @@ def bitkub(reqType, reqPath, reqBody, reqCredentials):
         sig = gen_sign(reqCredentials['secretKey'], ''.join(payload))
         headers['X-BTK-SIGN'] = sig
         response = requests.request('GET', f'{host}{reqPath}{query_param}', headers=headers, data={}, verify=True)
-        return response.text
+        return response.json()
     if reqType == "POST":
         payload.append('POST')
         payload.append(reqPath)
@@ -34,5 +34,5 @@ def bitkub(reqType, reqPath, reqBody, reqCredentials):
         sig = gen_sign(reqCredentials['secretKey'], ''.join(payload))
         headers['X-BTK-SIGN'] = sig
         response = requests.request('POST', url, headers=headers, data=json.dumps(reqBody), verify=True)
-        return response.text
+        return response.json()
     
