@@ -1,10 +1,10 @@
-import json, hmac, requests, hashlib, time
+import json, hmac, requests, hashlib
 
 def bitkub(reqType, reqPath, reqBody, reqCredentials):
     def gen_sign(api_secret, payload_string=None):
         return hmac.new(api_secret.encode('utf-8'), payload_string.encode('utf-8'), hashlib.sha256).hexdigest()
-    ts = str(round(time.time() * 1000))
     host = 'https://api.bitkub.com'
+    ts = requests.get(host + '/api/v3/servertime').text
     url = host + reqPath
     payload = []
     payload.append(ts)
