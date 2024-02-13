@@ -9,7 +9,7 @@ credentials = {
 # GET แบบที่ไม่ต้องการ Body
 reqBody = {
 }      
-print(bitkub("GET", '/api/status', reqBody, credentials))
+print(bitkub('GET', '/api/status', reqBody, credentials))
 
 # GET แบบที่ต้องการ Body
 reqBody = {
@@ -18,7 +18,7 @@ reqBody = {
     'from': 1633424427,
     'to' : 1633427427
 }      
-print(bitkub("GET", '/tradingview/history', reqBody, credentials))
+print(bitkub('GET', '/tradingview/history', reqBody, credentials))
 
 
 ### สำหรับ Secure endpoints ###
@@ -31,12 +31,12 @@ credentials = {
 reqBody = {
     'hash': 'fwQ6dnQYKnqFPYSn2u25cNDfRsN'
 }      
-print(bitkub("GET", '/api/v3/market/order-info', reqBody, credentials))
+print(bitkub('GET', '/api/v3/market/order-info', reqBody, credentials))
 
 # POST แบบที่ไม่ต้องการ Body
 reqBody = {
 }      
-print(bitkub("POST", '/api/v3/user/trading-credits', reqBody, credentials))
+print(bitkub('POST', '/api/v3/user/trading-credits', reqBody, credentials))
 
 # POST แบบที่ต้องการ Body
 reqBody = {
@@ -45,4 +45,4 @@ reqBody = {
     'rat': 999999,
     'typ': 'limit'
 }      
-print(bitkub("POST", '/api/v3/market/place-bid', reqBody, credentials))
+print(bitkub('POST', '/api/v3/market/place-bid', reqBody, credentials))

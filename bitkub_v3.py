@@ -14,11 +14,11 @@ def bitkub(reqType, reqPath, reqBody, reqCredentials):
         'X-BTK-TIMESTAMP': ts,
         'X-BTK-APIKEY': reqCredentials['apiKey']
     }
-    if reqType == "GET":
+    if reqType == 'GET':
         def gen_query_param(url, query_param):
             req = requests.PreparedRequest()
             req.prepare_url(url, query_param)
-            return req.url.replace(url,"")
+            return req.url.replace(url, '')
         query_param = gen_query_param(host+reqPath, reqBody)
         payload.append('GET')
         payload.append(reqPath)
@@ -27,7 +27,7 @@ def bitkub(reqType, reqPath, reqBody, reqCredentials):
         headers['X-BTK-SIGN'] = sig
         response = requests.request('GET', f'{host}{reqPath}{query_param}', headers=headers, data={}, verify=True)
         return response.json()
-    if reqType == "POST":
+    if reqType == 'POST':
         payload.append('POST')
         payload.append(reqPath)
         payload.append(json.dumps(reqBody))
@@ -35,4 +35,3 @@ def bitkub(reqType, reqPath, reqBody, reqCredentials):
         headers['X-BTK-SIGN'] = sig
         response = requests.request('POST', url, headers=headers, data=json.dumps(reqBody), verify=True)
         return response.json()
-    
